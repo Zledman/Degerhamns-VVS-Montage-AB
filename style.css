@@ -437,8 +437,8 @@ footer {
   }
 
   .logo-svg {
-    transform: translateX(-20px);
-    /* Push the logo physically further to the left edge */
+    transform: translateX(-50px);
+    /* Compensate for image transparent space */
   }
 
   .mobile-menu-btn {
