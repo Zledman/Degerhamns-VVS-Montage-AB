@@ -15,14 +15,30 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Sticky Header
+// Sticky Smart Header
 const header = document.getElementById('header');
+let lastScrollY = window.scrollY;
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    const currentScrollY = window.scrollY;
+
+    // Add/remove background
+    if (currentScrollY > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
+
+    // Hide/Show based on scroll direction
+    if (currentScrollY > 150 && currentScrollY > lastScrollY) {
+        // Scrolling down
+        header.classList.add('header-hidden');
+    } else {
+        // Scrolling up or at top
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentScrollY;
 });
 
 // Intersection Observer for Scroll Animations
